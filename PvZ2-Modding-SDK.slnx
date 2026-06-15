@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Release" />
+    <Platform Name="ARM" />
+  </Configurations>
+  <Project Path="PvZ2-Modding-SDK.vcxproj" Id="b46c95eb-3ecf-4358-8a84-919fd88a5339" />
+</Solution>

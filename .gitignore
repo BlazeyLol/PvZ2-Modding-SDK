@@ -37,9 +37,6 @@
 .idea/**
 CMakeFiles/**
 
-*.sln
-*.slnx
-*.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
 *.code-workspace
