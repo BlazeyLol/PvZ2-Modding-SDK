@@ -11,10 +11,41 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="PvZ2\src\PvZ2Mod.cpp" />
+    <ClCompile Include="SexyAppFramework\Color.cpp" />
+    <ClCompile Include="SexyAppFramework\Debug.cpp" />
+    <ClCompile Include="SexyAppFramework\GameCommon.cpp" />
+    <ClCompile Include="SexyAppFramework\LazySingleton.cpp" />
+    <ClCompile Include="SexyAppFramework\Reflection.cpp" />
+    <ClCompile Include="SexyAppFramework\RtClass.cpp" />
+    <ClCompile Include="SexyAppFramework\RtDb.cpp" />
+    <ClCompile Include="SexyAppFramework\RtDbTable.cpp" />
     <ClCompile Include="SexyAppFramework\RtObject.cpp" />
+    <ClCompile Include="SexyAppFramework\RTONDB.cpp" />
+    <ClCompile Include="SexyAppFramework\SexyMatrix.cpp" />
+    <ClCompile Include="SexyAppFramework\SexyVector.cpp" />
+    <ClCompile Include="vendors\substrate\SubstrateHook.cpp" />
+    <ClCompile Include="vendors\substrate\SubstratePosixMemory.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SexyAppFramework\Color.h" />
+    <ClInclude Include="SexyAppFramework\Debug.h" />
+    <ClInclude Include="SexyAppFramework\GameCommon.h" />
+    <ClInclude Include="SexyAppFramework\Point.h" />
+    <ClInclude Include="SexyAppFramework\Rect.h" />
+    <ClInclude Include="SexyAppFramework\Reflection.h" />
+    <ClInclude Include="SexyAppFramework\RtClass.h" />
+    <ClInclude Include="SexyAppFramework\RtDb.h" />
+    <ClInclude Include="SexyAppFramework\RtDbTable.h" />
     <ClInclude Include="SexyAppFramework\RtObject.h" />
+    <ClInclude Include="SexyAppFramework\RTONDB.h" />
+    <ClInclude Include="SexyAppFramework\RtSerializeContext.h" />
+    <ClInclude Include="SexyAppFramework\RtWeakPtr.h" />
+    <ClInclude Include="SexyAppFramework\SexyMatrix.h" />
+    <ClInclude Include="SexyAppFramework\SexyVector.h" />
+    <ClInclude Include="vendors\substrate\CydiaSubstrate.h" />
+    <ClInclude Include="vendors\substrate\SubstrateARM.hpp" />
+    <ClInclude Include="vendors\substrate\SubstrateHook.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{b46c95eb-3ecf-4358-8a84-919fd88a5339}</ProjectGuid>
@@ -53,12 +84,12 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);SubstrateInternal</PreprocessorDefinitions>
       <CppLanguageStandard>c++11</CppLanguageStandard>
       <CLanguageStandard>c11</CLanguageStandard>
-      <AdditionalIncludeDirectories>SexyAppFramework;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendors\substrate;SexyAppFramework;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>SubstrateInternal;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <LibraryDependencies>m;GLESv2;%(LibraryDependencies)</LibraryDependencies>
@@ -66,14 +97,14 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <DebugInformationFormat>None</DebugInformationFormat>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);SubstrateInternal</PreprocessorDefinitions>
       <CppLanguageStandard>c++11</CppLanguageStandard>
       <CLanguageStandard>c11</CLanguageStandard>
       <AdditionalOptions>-fvisibility=hidden %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>SexyAppFramework;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendors\substrate;SexyAppFramework;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>SubstrateInternal;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <LibraryDependencies>m;GLESv2;%(LibraryDependencies)</LibraryDependencies>

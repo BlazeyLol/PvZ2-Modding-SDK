@@ -11,8 +11,7 @@ namespace Sexy
 
     class RtClass;
     class RtSerializeContext;
-
-    //
+    
 
     class RtObject
     {
@@ -27,7 +26,7 @@ namespace Sexy
         virtual RtClass* GetType() const;
         virtual bool Function1() const;
         virtual ~RtObject();
-        virtual bool IsRelated(RtClass* theClass) const;
+        virtual bool IsType(RtClass* theClass) const;
         virtual bool Function5() const;
         virtual bool Serialize(const RtSerializeContext& serializeContext);
 
