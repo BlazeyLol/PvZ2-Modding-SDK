@@ -4,6 +4,7 @@
 
 #include "Delegate.h"
 
+//
 
 Sexy::DelegateBase::DelegateBase() :
 	m_callback(nullptr),

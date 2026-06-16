@@ -24,7 +24,7 @@
             rtClass->RegisterClass(#classType, ancestorClass, reinterpret_cast<Sexy::RtClassConstruct>(Construct)); \
             StaticClassInit(); \
         } \
-        return s_rtClass; \
+        return reinterpret_cast<rtClassType*>(s_rtClass); \
     } \
     rtClassType* GetType() const override { return StaticGetType(); } \
     bool Function1() const override { return false; } \
@@ -65,8 +65,9 @@ namespace Sexy
 		RtClass();
 		virtual ~RtClass() override;
 
+		static RtWeakPtr<RtClass> GetThisPtr(RtClass* self);
+
 		void BindRClass(Reflection::RClass* theRClass);
-		RtWeakPtr<RtClass> GetClassRef();
 
 		virtual bool Serialize(const RtSerializeContext& serializeContext) override;
 

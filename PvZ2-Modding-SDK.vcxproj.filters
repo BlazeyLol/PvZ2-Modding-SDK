@@ -21,6 +21,12 @@
     <ClCompile Include="SexyAppFramework\RtIdProtocol.cpp" />
     <ClCompile Include="PvZ2\src\GameObject.cpp" />
     <ClCompile Include="PvZ2\src\PVZDB.cpp" />
+    <ClCompile Include="SexyAppFramework\BaseResource.cpp" />
+    <ClCompile Include="SexyAppFramework\ResourceClass.cpp" />
+    <ClCompile Include="SexyAppFramework\Image.cpp" />
+    <ClCompile Include="SexyAppFramework\ResourceManager.cpp" />
+    <ClCompile Include="SexyAppFramework\SexyAppBase.cpp" />
+    <ClCompile Include="SexyAppFramework\drivers\app\android\AndroidAppDriver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SexyAppFramework\RtObject.h" />
@@ -47,5 +53,14 @@
     <ClInclude Include="SexyAppFramework\Core.h" />
     <ClInclude Include="PvZ2\src\GameObject.h" />
     <ClInclude Include="PvZ2\src\PVZDB.h" />
+    <ClInclude Include="SexyAppFramework\BaseResource.h" />
+    <ClInclude Include="SexyAppFramework\ResourceClass.h" />
+    <ClInclude Include="SexyAppFramework\Image.h" />
+    <ClInclude Include="SexyAppFramework\ResourceManager.h" />
+    <ClInclude Include="SexyAppFramework\SexyAppBase.h" />
+    <ClInclude Include="SexyAppFramework\ButtonListener.h" />
+    <ClInclude Include="SexyAppFramework\DialogListener.h" />
+    <ClInclude Include="SexyAppFramework\drivers\app\android\AndroidAppDriver.h" />
+    <ClInclude Include="SexyAppFramework\drivers\app\IAppDriver.h" />
   </ItemGroup>
 </Project>

@@ -34,5 +34,4 @@ namespace Sexy
 
 } // Sexy
 
-
 #endif // __RtObject__

@@ -7,6 +7,7 @@
 
 #include "GameCommon.h"
 
+//
 
 namespace Sexy
 {
@@ -97,7 +98,12 @@ namespace Sexy
 
 		static R StaticCallbackInvoker(Delegate1wRet* theDelegate, Param1 arg1)
 		{
-			return ((R(*)(void*, Param1))theDelegate->m_callback)(theDelegate->m_owner, arg1);
+			if (theDelegate->m_owner)
+			{
+				return ((R(*)(void*, Param1))theDelegate->m_callback)(theDelegate->m_owner, arg1);
+			}
+			
+			return ((R(*)(Param1))theDelegate->m_callback)(arg1);
 		}
 
 	};

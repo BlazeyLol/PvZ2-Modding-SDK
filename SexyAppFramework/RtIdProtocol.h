@@ -24,6 +24,8 @@ namespace Sexy
 		RtIdProtocol();
 		virtual ~RtIdProtocol() override;
 
+		void AssignDelegate(const Delegate1wRet<RtId, RtObject*>& delegate);
+
 	};
 
 } // Sexy

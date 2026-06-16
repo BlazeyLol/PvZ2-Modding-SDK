@@ -61,19 +61,20 @@ Sexy::RtClass::~RtClass()
 }
 
 
-void Sexy::RtClass::BindRClass(Reflection::RClass* theRClass)
+Sexy::RtWeakPtr<Sexy::RtClass> Sexy::RtClass::GetThisPtr(RtClass* self)
 {
-	m_rclass = theRClass;
-}
-
-Sexy::RtWeakPtr<Sexy::RtClass> Sexy::RtClass::GetClassRef()
-{
-	if (this && IsType(RtClass::StaticGetType()))
+	if (self && self->IsType(RtClass::StaticGetType()))
 	{
-		return m_thisPtr;
+		return self->m_thisPtr;
 	}
 
 	return RtWeakPtr<RtClass>();
+}
+
+
+void Sexy::RtClass::BindRClass(Reflection::RClass* theRClass)
+{
+	m_rclass = theRClass;
 }
 
 

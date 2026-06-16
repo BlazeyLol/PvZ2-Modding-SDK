@@ -6,6 +6,7 @@
 #include "RtObject.h"
 #include "RtWeakPtr.h"
 
+//
 
 Sexy::RtWeakPtr<Sexy::RtObject>* Sexy::RtDbTable::AddObject(RtObject* theObject, int a4, int a5, int a6)
 {
