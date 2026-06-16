@@ -15,7 +15,7 @@ Sexy::RtDb::RtDb()
 }
 
 
-Sexy::RtDb* s_instance = nullptr;
+Sexy::RtDb* Sexy::RtDb::s_instance = nullptr;
 
 Sexy::RtDb* Sexy::RtDb::GetInstance()
 {
@@ -39,7 +39,12 @@ Sexy::RtWeakPtr<Sexy::RtObject> Sexy::RtDb::ResolveRtId(RtWeakPtr<RtObject>* the
 	return handler;
 }
 
-Sexy::RtDbTable* Sexy::RtDb::GetTableForType(int theObjectType)
+Sexy::RtDbTable* Sexy::RtDb::GetTableForType(int theTableType)
 {
+	return CallFunc<RtDbTable*, RtDb*, int>(0x10DF644, this, theTableType);
+}
 
+Sexy::RtDbTable* Sexy::RtDb::MakeNewTable(int theTableType, RtWeakPtr<RtObject>* theTablePtr)
+{
+	return CallFunc<RtDbTable*, RtDb*, int, RtWeakPtr<RtObject>*>(0x10DF6F8, this, theTableType, theTablePtr);
 }

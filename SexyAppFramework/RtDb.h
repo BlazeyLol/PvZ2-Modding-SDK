@@ -28,7 +28,7 @@ namespace Sexy
 
 		RtWeakPtr<RtObject> ResolveRtId(RtWeakPtr<RtObject>* theObjectPtr);
 		RtDbTable* GetTableForType(int theObjectType);
-		//RtDbTable* MakeNewTable(int theObjectType);
+		RtDbTable* MakeNewTable(int theObjectType, RtWeakPtr<RtObject>* theTablePtr);
 
 
 	};

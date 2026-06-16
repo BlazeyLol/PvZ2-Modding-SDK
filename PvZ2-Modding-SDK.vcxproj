@@ -11,25 +11,34 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="PvZ2\src\GameObject.cpp" />
     <ClCompile Include="PvZ2\src\PvZ2Mod.cpp" />
+    <ClCompile Include="PvZ2\src\PVZDB.cpp" />
     <ClCompile Include="SexyAppFramework\Color.cpp" />
     <ClCompile Include="SexyAppFramework\Debug.cpp" />
+    <ClCompile Include="SexyAppFramework\Delegate.cpp" />
     <ClCompile Include="SexyAppFramework\GameCommon.cpp" />
-    <ClCompile Include="SexyAppFramework\LazySingleton.cpp" />
+    <ClCompile Include="SexyAppFramework\LazySingleton.h" />
     <ClCompile Include="SexyAppFramework\Reflection.cpp" />
     <ClCompile Include="SexyAppFramework\RtClass.cpp" />
     <ClCompile Include="SexyAppFramework\RtDb.cpp" />
     <ClCompile Include="SexyAppFramework\RtDbTable.cpp" />
+    <ClCompile Include="SexyAppFramework\RtIdProtocol.cpp" />
     <ClCompile Include="SexyAppFramework\RtObject.cpp" />
     <ClCompile Include="SexyAppFramework\RTONDB.cpp" />
+    <ClCompile Include="SexyAppFramework\RtProtocol.cpp" />
     <ClCompile Include="SexyAppFramework\SexyMatrix.cpp" />
     <ClCompile Include="SexyAppFramework\SexyVector.cpp" />
     <ClCompile Include="vendors\substrate\SubstrateHook.cpp" />
     <ClCompile Include="vendors\substrate\SubstratePosixMemory.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="PvZ2\src\GameObject.h" />
+    <ClInclude Include="PvZ2\src\PVZDB.h" />
     <ClInclude Include="SexyAppFramework\Color.h" />
+    <ClInclude Include="SexyAppFramework\Core.h" />
     <ClInclude Include="SexyAppFramework\Debug.h" />
+    <ClInclude Include="SexyAppFramework\Delegate.h" />
     <ClInclude Include="SexyAppFramework\GameCommon.h" />
     <ClInclude Include="SexyAppFramework\Point.h" />
     <ClInclude Include="SexyAppFramework\Rect.h" />
@@ -37,8 +46,10 @@
     <ClInclude Include="SexyAppFramework\RtClass.h" />
     <ClInclude Include="SexyAppFramework\RtDb.h" />
     <ClInclude Include="SexyAppFramework\RtDbTable.h" />
+    <ClInclude Include="SexyAppFramework\RtIdProtocol.h" />
     <ClInclude Include="SexyAppFramework\RtObject.h" />
     <ClInclude Include="SexyAppFramework\RTONDB.h" />
+    <ClInclude Include="SexyAppFramework\RtProtocol.h" />
     <ClInclude Include="SexyAppFramework\RtSerializeContext.h" />
     <ClInclude Include="SexyAppFramework\RtWeakPtr.h" />
     <ClInclude Include="SexyAppFramework\SexyMatrix.h" />
@@ -103,8 +114,8 @@
       <CppLanguageStandard>c++11</CppLanguageStandard>
       <CLanguageStandard>c11</CLanguageStandard>
       <AdditionalOptions>-fvisibility=hidden %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>vendors\substrate;SexyAppFramework;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SubstrateInternal;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>vendors\substrate;SexyAppFramework;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <LibraryDependencies>m;GLESv2;%(LibraryDependencies)</LibraryDependencies>

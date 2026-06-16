@@ -18,11 +18,9 @@ namespace Sexy
 	{
 	public:
 
+		RtWeakPtr<RtObject>* AddObject(RtObject* theObject, int a4 = 1, int a5 = 1, int a6 = 0);
 		RtObject* GetObject(const RtWeakPtr<RtObject>& theObjectPtr);
-		RtObject* AddObject(int a3, bool a4, int a5, int a6);
 		bool EraseObject(const RtWeakPtr<RtObject>& theObjectPtr);
-		bool Deserialize(void* theJsonSync, void* a3);
-		bool Serialize(void* theJsonSync, void* a3);
 
 	};
 

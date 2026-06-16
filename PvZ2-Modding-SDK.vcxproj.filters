@@ -15,7 +15,12 @@
     <ClCompile Include="SexyAppFramework\Debug.cpp" />
     <ClCompile Include="vendors\substrate\SubstrateHook.cpp" />
     <ClCompile Include="vendors\substrate\SubstratePosixMemory.cpp" />
-    <ClCompile Include="SexyAppFramework\LazySingleton.cpp" />
+    <ClCompile Include="SexyAppFramework\LazySingleton.h" />
+    <ClCompile Include="SexyAppFramework\Delegate.cpp" />
+    <ClCompile Include="SexyAppFramework\RtProtocol.cpp" />
+    <ClCompile Include="SexyAppFramework\RtIdProtocol.cpp" />
+    <ClCompile Include="PvZ2\src\GameObject.cpp" />
+    <ClCompile Include="PvZ2\src\PVZDB.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SexyAppFramework\RtObject.h" />
@@ -36,5 +41,11 @@
     <ClInclude Include="vendors\substrate\CydiaSubstrate.h" />
     <ClInclude Include="vendors\substrate\SubstrateARM.hpp" />
     <ClInclude Include="vendors\substrate\SubstrateHook.h" />
+    <ClInclude Include="SexyAppFramework\Delegate.h" />
+    <ClInclude Include="SexyAppFramework\RtProtocol.h" />
+    <ClInclude Include="SexyAppFramework\RtIdProtocol.h" />
+    <ClInclude Include="SexyAppFramework\Core.h" />
+    <ClInclude Include="PvZ2\src\GameObject.h" />
+    <ClInclude Include="PvZ2\src\PVZDB.h" />
   </ItemGroup>
 </Project>

@@ -28,6 +28,11 @@ namespace Sexy
 			mRtId = NULL_RTID;
 		}
 
+		RtWeakPtr(RtId theId)
+		{
+			SetToken(theId);
+		}
+
 		~RtWeakPtr()
 		{
 			SetToken(NULL_RTID);
@@ -69,7 +74,7 @@ namespace Sexy
 			CallFunc<void, RtWeakPtr*, RtId>(0x10C88C8, this, theId);
 		}
 
-		RtWeakPtr* Move(RtId& theId)
+		void Move(RtId& theId)
 		{
 			if (mRtId) {
 				SetToken(NULL_RTID);
@@ -77,13 +82,16 @@ namespace Sexy
 
 			mRtId = theId;
 			theId = NULL_RTID;
-
-			return this;
 		}
 
-		RtWeakPtr* Move(RtWeakPtr* theOther)
+		void Move(const RtWeakPtr& theOther)
 		{
-			return Move(theOther->mRtId);
+			Move(theOther.mRtId);
+		}
+
+		void Move(RtWeakPtr* theOther)
+		{
+			Move(theOther->mRtId);
 		}
 
 		inline _T* Get()
@@ -104,6 +112,12 @@ namespace Sexy
 			}
 
 			return reinterpret_cast<_T*>(object);
+		}
+
+		template<typename Type>
+		inline RtWeakPtr<Type> CastPtr()
+		{
+			return RtWeakPtr<Type>(mRtId);
 		}
 
 

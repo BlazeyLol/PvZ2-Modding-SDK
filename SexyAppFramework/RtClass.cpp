@@ -3,8 +3,17 @@
 //
 
 #include "RtClass.h"
+#include "RtIdProtocol.h"
+#include "RTONDB.h"
 
 //
+
+RT_CLASS_IMPLEMENT(Sexy::RtClass);
+void Sexy::RtClass::StaticClassInit()
+{
+	CallFunc<>(0x1250344);
+}
+
 
 Sexy::RtClass::RtClass()
 {
@@ -17,48 +26,38 @@ Sexy::RtClass::RtClass()
 	m_protocol3 = nullptr;
 	m_rclass = nullptr;
 
-	//auto* rtDb = Sexy::RtDb::GetInstance();
-	//auto* table = rtDb->GetTable(0x2002);
+	RtDb* rtDb = Sexy::RtDb::GetInstance();
+	RtDbTable* table = rtDb->GetTableForType(0x2002);
+	RtWeakPtr<RtObject> thisPtr;
 
-	//if (!table)
-	//{
+	if (!table)
+	{
+		RTONDB* rtonDb = RTONDB::GetInstance();
 
-	//}
+		rtonDb->DecInstanceCount(0);
+		int refCount = rtonDb->GetRefCount("System.RtClasses");
 
-	
+		rtonDb->IncInstanceCount(refCount);
+		const char* entryName = rtonDb->GetEntryName(refCount);
+
+		rtDb->MakeNewTable(0x2002, &thisPtr);
+		rtonDb->DecInstanceCount(refCount);
+	}
+
+	thisPtr = *table->AddObject(this, 2);
+	m_thisPtr.Move(thisPtr.CastPtr<RtClass>());
+
 }
 
 Sexy::RtClass::~RtClass()
 {
+	RtDb* rtDb = Sexy::RtDb::GetInstance();
+	RtDbTable* table = rtDb->GetTableForType(0x2002);
 
-}
-
-
-Sexy::RtClass* Sexy::RtClass::s_rtClass = nullptr;
-
-Sexy::RtClass* Sexy::RtClass::StaticGetType()
-{
-	if (!s_rtClass)
+	if (table)
 	{
-		Sexy::RtClass* rtClass = RtClass::Construct();
-		s_rtClass = rtClass;
-
-		RtClass* super = RtObject::StaticGetType();
-		rtClass->RegisterClass("RtClass", super, reinterpret_cast<RtClassConstruct>(Construct));
-		StaticClassInit();
+		table->EraseObject(m_thisPtr.CastPtr<RtObject>());
 	}
-
-	return s_rtClass;
-}
-
-Sexy::RtClass* Sexy::RtClass::Construct()
-{
-	return new RtClass();
-}
-
-void Sexy::RtClass::StaticClassInit()
-{
-
 }
 
 
@@ -77,16 +76,6 @@ Sexy::RtWeakPtr<Sexy::RtClass> Sexy::RtClass::GetClassRef()
 	return RtWeakPtr<RtClass>();
 }
 
-
-Sexy::RtClass* Sexy::RtClass::GetType() const
-{
-	return StaticGetType();
-}
-
-bool Sexy::RtClass::Function1() const
-{
-	return false;
-}
 
 bool Sexy::RtClass::Serialize(const RtSerializeContext& serializeContext)
 {
@@ -110,6 +99,7 @@ bool Sexy::RtClass::CompareTypes(RtClass* theClass) const
 			return false;
 		}
 	}
+
 	return true;
 }
 

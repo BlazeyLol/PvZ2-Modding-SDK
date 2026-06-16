@@ -44,7 +44,7 @@ namespace Sexy
 	uintptr_t GetProcAddress(uintptr_t offset);
 	void HookFunc(uintptr_t offset, void* replacement, void** original = nullptr);
 	
-	template<typename R, typename... Args>
+	template<typename R = void, typename... Args>
 	R CallFunc(uintptr_t offset, Args... args)
 	{
 		using funcDef = R(*)(Args...);
@@ -53,5 +53,8 @@ namespace Sexy
 	}
 
 } // Sexy
+
+using namespace Sexy;
+
 
 #endif // __GameCommon__
