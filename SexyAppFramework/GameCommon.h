@@ -28,6 +28,7 @@ using ushort = unsigned short;
 using uint = unsigned int;
 using ulong = unsigned long;
 using int64 = int64_t;
+using uint64 = uint64_t;
 
 // deprecated type aliases
 using SexyString = std::string;

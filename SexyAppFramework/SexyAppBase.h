@@ -9,6 +9,7 @@
 #include "DialogListener.h"
 #include "GameCommon.h"
 #include "drivers/app/android/AndroidAppDriver.h"
+#include "drivers/audio/wwise/WwiseInteractiveAudioDriver.h"
 
 //
 
@@ -24,7 +25,7 @@ namespace Sexy
 	public:
 
 		AndroidAppDriver* mAppDriver;
-		void* mAudioDriver;
+		WwiseInteractiveAudioDriver* mInteractiveAudioDriver;
 		int field3;
 		void* mAsyncIOFileDriver;
 		void* mResStreamsDriver;

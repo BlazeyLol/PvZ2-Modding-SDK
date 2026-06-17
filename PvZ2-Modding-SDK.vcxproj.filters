@@ -27,6 +27,7 @@
     <ClCompile Include="SexyAppFramework\ResourceManager.cpp" />
     <ClCompile Include="SexyAppFramework\SexyAppBase.cpp" />
     <ClCompile Include="SexyAppFramework\drivers\app\android\AndroidAppDriver.cpp" />
+    <ClCompile Include="SexyAppFramework\drivers\audio\wwise\WwiseInteractiveAudioDriver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SexyAppFramework\RtObject.h" />
@@ -62,5 +63,7 @@
     <ClInclude Include="SexyAppFramework\DialogListener.h" />
     <ClInclude Include="SexyAppFramework\drivers\app\android\AndroidAppDriver.h" />
     <ClInclude Include="SexyAppFramework\drivers\app\IAppDriver.h" />
+    <ClInclude Include="SexyAppFramework\drivers\audio\IInteractiveAudioDriver.h" />
+    <ClCompile Include="SexyAppFramework\drivers\audio\wwise\WwiseInteractiveAudioDriver.h" />
   </ItemGroup>
 </Project>
