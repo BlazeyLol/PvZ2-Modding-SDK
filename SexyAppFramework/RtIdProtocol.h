@@ -6,6 +6,7 @@
 #define __RtIdProtocol__
 
 #include "RtProtocol.h"
+#include "RtClass.h"
 #include "Delegate.h"
 
 //
@@ -24,7 +25,7 @@ namespace Sexy
 		RtIdProtocol();
 		virtual ~RtIdProtocol() override;
 
-		void AssignDelegate(const Delegate1wRet<RtId, RtObject*>& delegate);
+		void AttachDelegate(const Delegate1wRet<RtId, RtObject*>& delegate);
 
 	};
 

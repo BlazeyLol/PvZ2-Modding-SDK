@@ -17,13 +17,15 @@ namespace Sexy
 		int mBlue = 0;
 		int mAlpha = 255;
 
-
 		static Color Black;
 		static Color White;
+
 
 		Color();
 		Color(int theRed, int theGreen, int theBlue);
 		Color(int theRed, int theGreen, int theBlue, int theAlpha);
+
+		static Color GetColorBlack();
 
 		int	GetRed() const;
 		int	GetGreen() const;

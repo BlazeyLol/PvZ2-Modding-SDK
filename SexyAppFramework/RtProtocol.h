@@ -5,7 +5,8 @@
 #ifndef __RtProtocol__
 #define __RtProtocol__
 
-#include "Core.h"
+#include "RtObject.h"
+#include "RtClass.h"
 
 //
 

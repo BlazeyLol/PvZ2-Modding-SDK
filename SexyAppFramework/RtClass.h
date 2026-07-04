@@ -68,6 +68,7 @@ namespace Sexy
 		static RtWeakPtr<RtClass> GetThisPtr(RtClass* self);
 
 		void BindRClass(Reflection::RClass* theRClass);
+		void AttachProtocol(RtIdProtocol* theProtocol);
 
 		virtual bool Serialize(const RtSerializeContext& serializeContext) override;
 

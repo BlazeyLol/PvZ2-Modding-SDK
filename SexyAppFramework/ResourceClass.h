@@ -5,7 +5,7 @@
 #ifndef __ResourceClass__
 #define __ResourceClass__
 
-#include "Core.h"
+#include "RtClass.h"
 
 //
 

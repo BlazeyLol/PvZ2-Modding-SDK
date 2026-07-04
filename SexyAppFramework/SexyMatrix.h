@@ -62,6 +62,44 @@ namespace Sexy
 
 	};
 
+	//
+
+	class Transform
+	{
+	public:
+
+		mutable SexyTransform2D mMatrix;
+		mutable bool mNeedCalcMatrix;
+		bool mComplex;
+		bool mHaveRot;
+		bool mHaveScale;
+		float mTransX1;
+		float mTransY1;
+		float mTransX2;
+		float mTransY2;
+		float mScaleX;
+		float mScaleY;
+		float mRot;
+
+
+		Transform();
+
+		void Reset();
+
+		void Translate(float tx, float ty);
+		void RotateRad(float rot);
+		void RotateDeg(float rot);
+		void Scale(float sx, float sy);
+
+		const SexyTransform2D& GetMatrix() const;
+
+	protected:
+
+		void MakeComplex() ;
+		void CalcMatrix() const;
+
+	};
+
 } // Sexy
 
 #endif // __SexyMatrix__

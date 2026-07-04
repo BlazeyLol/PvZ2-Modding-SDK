@@ -18,7 +18,7 @@ Sexy::RtIdProtocol::~RtIdProtocol()
 {}
 
 
-void Sexy::RtIdProtocol::AssignDelegate(const Delegate1wRet<RtId, RtObject*>& delegate)
+void Sexy::RtIdProtocol::AttachDelegate(const Delegate1wRet<RtId, RtObject*>& delegate)
 {
 	m_delegate = delegate;
 }

@@ -13,9 +13,9 @@ void Sexy::BaseResource::StaticClassInit()
 	RtIdProtocol* protocol = new RtIdProtocol();
 	Delegate1wRet<RtId, RtObject*> delegate = Delegate1wRet<RtId, RtObject*>(reinterpret_cast<void*>(GetThisPtr), nullptr);
 
-	protocol->AssignDelegate(delegate);
-	RtClass* type = BaseResource::StaticGetType();
-	CallFunc<void, RtClass*, RtIdProtocol*>(0x12504A0, type, protocol);
+	protocol->AttachDelegate(delegate);
+	RtClass* baseResType = BaseResource::StaticGetType();
+	baseResType->AttachProtocol(protocol);
 }
 
 

@@ -6,9 +6,8 @@
 
 //
 
-Sexy::Color Sexy::Color::Black(0, 0, 0);
-Sexy::Color Sexy::Color::White(255, 255, 255);
-
+Sexy::Color Sexy::Color::Black = Sexy::Color(0, 0, 0);
+Sexy::Color Sexy::Color::White = Sexy::Color(255, 255, 255);
 
 Sexy::Color::Color() :
 	mRed(0),
@@ -30,6 +29,12 @@ Sexy::Color::Color(int theRed, int theGreen, int theBlue, int theAlpha) :
 	mBlue(theBlue),
 	mAlpha(theAlpha)
 {}
+
+
+Sexy::Color Sexy::Color::GetColorBlack()
+{
+	return Color();
+}
 
 
 int Sexy::Color::GetRed() const

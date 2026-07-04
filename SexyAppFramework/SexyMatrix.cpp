@@ -73,8 +73,9 @@ Sexy::SexyTransform2D::SexyTransform2D()
 
 Sexy::SexyTransform2D::SexyTransform2D(bool loadIdentity)
 {
-	if (loadIdentity)
+	if (loadIdentity) {
 		LoadIdentity();
+	}
 }
 
 
@@ -125,4 +126,138 @@ Sexy::SexyTransform2D& Sexy::SexyTransform2D::operator=(const SexyMatrix3& theMa
 {
 	SexyMatrix3::operator=(theMat);
 	return *this;
+}
+
+//
+
+Sexy::Transform::Transform() : mMatrix(false)
+{
+	Reset();
+}
+
+
+void Sexy::Transform::Reset()
+{
+	mNeedCalcMatrix = true;
+	mComplex = false;
+	mTransX1 = mTransY1 = 0;
+	mTransX2 = mTransY2 = 0;
+	mScaleX = mScaleY = 1;
+	mRot = 0;
+	mHaveRot = false;
+	mHaveScale = false;
+}
+
+
+void Sexy::Transform::Translate(float tx, float ty)
+{
+	if (!mComplex)
+	{
+		mNeedCalcMatrix = true;
+		if (mHaveRot || mHaveScale)
+		{
+			mTransX2 += tx;
+			mTransY2 += ty;
+		}
+		else
+		{
+			mTransX1 += tx;
+			mTransY1 += ty;
+		}
+	}
+	else {
+		mMatrix.Translate(tx, ty);
+	}
+}
+
+void Sexy::Transform::RotateRad(float rot)
+{
+	if (!mComplex)
+	{
+		if (mHaveScale)
+		{
+			MakeComplex();
+			mMatrix.RotateRad(rot);
+		}
+		else
+		{
+			mNeedCalcMatrix = true;
+			mHaveRot = true;
+			mRot += rot;
+		}
+	}
+	else {
+		mMatrix.RotateRad(rot);
+	}
+}
+
+void Sexy::Transform::RotateDeg(float rot)
+{
+	Transform::RotateRad(3.1415926535897932384626433832795028841971f * rot / 180.0f);
+}
+
+void Sexy::Transform::Scale(float sx, float sy)
+{
+	if (!mComplex)
+	{
+		if (mHaveRot || mTransX1 != 0 || mTransY1 != 0 || (sx < 0 && mScaleX * sx != -1) || sy < 0)
+		{
+			MakeComplex();
+			mMatrix.Scale(sx, sy);
+		}
+		else
+		{
+			mNeedCalcMatrix = true;
+			mHaveScale = true;
+			mScaleX *= sx;
+			mScaleY *= sy;
+		}
+	}
+	else {
+		mMatrix.Scale(sx, sy);
+	}
+}
+
+
+const Sexy::SexyTransform2D& Sexy::Transform::GetMatrix() const
+{
+	CalcMatrix();
+	return mMatrix;
+}
+
+
+void Sexy::Transform::MakeComplex()
+{
+	if (!mComplex)
+	{
+		mComplex = true;
+		CalcMatrix();
+	}
+}
+
+void Sexy::Transform::CalcMatrix() const
+{
+	if (mNeedCalcMatrix)
+	{
+		mNeedCalcMatrix = false;
+
+		mMatrix.LoadIdentity();
+		mMatrix.m02 = mTransX1;
+		mMatrix.m12 = mTransY1;
+		mMatrix.m22 = 1;
+
+		if (mHaveScale)
+		{
+			mMatrix.m00 = mScaleX;
+			mMatrix.m11 = mScaleY;
+		}
+		else if (mHaveRot) {
+			mMatrix.RotateRad(mRot);
+		}
+
+		if (mTransX2 != 0 || mTransY2 != 0) {
+			mMatrix.Translate(mTransX2, mTransY2);
+		}
+	}
+
 }

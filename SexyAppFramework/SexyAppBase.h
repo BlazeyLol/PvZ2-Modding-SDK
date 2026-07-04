@@ -8,8 +8,10 @@
 #include "ButtonListener.h"
 #include "DialogListener.h"
 #include "GameCommon.h"
+
 #include "drivers/app/android/AndroidAppDriver.h"
 #include "drivers/audio/wwise/WwiseInteractiveAudioDriver.h"
+#include "drivers/render/android/AndroidRenderDeviceES20.h"
 
 //
 
@@ -26,7 +28,7 @@ namespace Sexy
 
 		AndroidAppDriver* mAppDriver;
 		WwiseInteractiveAudioDriver* mInteractiveAudioDriver;
-		int field3;
+		AndroidRenderDeviceES20* mGraphicsDriver;
 		void* mAsyncIOFileDriver;
 		void* mResStreamsDriver;
 		void* mHttpDriver;

@@ -50,6 +50,59 @@ int Sexy::Image::GetHeight() const
 	return mHeight;
 }
 
+int Sexy::Image::GetCelHeight() const
+{
+	return mHeight / mNumRows;
+}
+
+int Sexy::Image::GetCelWidth() const
+{
+	return mWidth / mNumCols;
+}
+
+Sexy::Rect Sexy::Image::GetCelRect(int theCel) const
+{
+	int h = GetCelHeight();
+	int w = GetCelWidth();
+	int x = (theCel % mNumCols) * w;
+	int y = (theCel / mNumCols) * h;
+
+	return Rect(x, y, w, h);
+}
+
+Sexy::Rect Sexy::Image::GetCelRect(int theCol, int theRow) const
+{
+	int h = GetCelHeight();
+	int w = GetCelWidth();
+	int x = theCol * w;
+	int y = theRow * h;
+
+	return Rect(x, y, w, h);
+}
+
+int	Sexy::Image::GetAnimCel(int theTime)
+{
+	if (theTime) {
+		return 0;
+	}
+	
+	// This is most likely Sexy::Image::GetCel
+	return CallFunc<int, Image*, int>(0x16FD698, this, theTime);
+}
+
+Sexy::Rect Sexy::Image::GetAnimCelRect(int theTime)
+{
+	int aCel = GetAnimCel(theTime);
+	int aCelWidth = GetCelWidth();
+	int aCelHeight = GetCelHeight();
+
+	if (mNumCols > 1) {
+		return Rect(aCel * aCelWidth, 0, aCelWidth, mHeight);
+	}
+
+	return Rect(0, aCel * aCelHeight, mWidth, aCelHeight);
+}
+
 
 bool Sexy::Image::Function7()
 {}

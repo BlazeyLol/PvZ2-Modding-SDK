@@ -4,9 +4,9 @@
 
 #include "GameObject.h"
 #include "GameCommon.h"
-//#include "MessageRouter.h"
-//#include "RtReflectionDelegate.h"
-//#include "ReflectionBuilder.h"
+#include "MessageRouter.h"
+#include "RtReflectionDelegate.h"
+#include "ReflectionBuilder.h"
 
 //
 

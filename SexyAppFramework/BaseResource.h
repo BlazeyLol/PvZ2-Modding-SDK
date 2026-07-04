@@ -5,7 +5,8 @@
 #ifndef __BaseResource__
 #define __BaseResource__
 
-#include "Core.h"
+#include "RtObject.h"
+#include "RtWeakPtr.h"
 #include "ResourceClass.h"
 
 //

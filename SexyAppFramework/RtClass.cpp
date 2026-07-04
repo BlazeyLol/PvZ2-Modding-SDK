@@ -77,6 +77,11 @@ void Sexy::RtClass::BindRClass(Reflection::RClass* theRClass)
 	m_rclass = theRClass;
 }
 
+void Sexy::RtClass::AttachProtocol(RtIdProtocol* theProtocol)
+{
+	CallFunc<void, RtClass*, RtIdProtocol*>(0x12504A0, this, theProtocol);
+}
+
 
 bool Sexy::RtClass::Serialize(const RtSerializeContext& serializeContext)
 {

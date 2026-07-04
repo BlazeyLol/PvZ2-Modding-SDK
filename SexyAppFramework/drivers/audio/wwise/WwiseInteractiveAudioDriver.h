@@ -23,7 +23,7 @@ namespace Sexy
 		virtual void Function4() {}
 		virtual void Function5() {}
 		virtual void Function6() {}
-		virtual int PostEvent(const std::string& eventName, uint64 gameObjectId) {}
+		virtual int PostEvent(const std::string& theEventName, uint64 theGameObjectId) {}
 		virtual void Function8() {}
 		virtual void Function9() {}
 		virtual void Function10() {}
@@ -37,11 +37,11 @@ namespace Sexy
 		virtual void Function18() {}
 		virtual void Function19() {}
 		virtual void Function20() {}
-		virtual int GetIDFromString(const char* string) {}
+		virtual int GetIDFromString(const char* theString) {}
 		virtual void Function22() {}
 		virtual void Function23() {}
 		virtual void Function24() {}
-		virtual int SetSwitch(const std::string& switchGroup, const std::string& switchState, uint64 gameObjectId) {}
+		virtual int SetSwitch(const std::string& theSwitchGroup, const std::string& theSwitchState, uint64 theGameObjectId) {}
 		virtual void Function26() {}
 		virtual void Function27() {}
 		
