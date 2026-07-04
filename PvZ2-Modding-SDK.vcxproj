@@ -35,11 +35,11 @@
     <ClCompile Include="SexyAppFramework\Color.cpp" />
     <ClCompile Include="SexyAppFramework\Debug.cpp" />
     <ClCompile Include="SexyAppFramework\Delegate.cpp" />
+    <ClCompile Include="SexyAppFramework\drivers\app\android\AndroidAppDriver.cpp" />
+    <ClCompile Include="SexyAppFramework\drivers\audio\wwise\WwiseInteractiveAudioDriver.cpp" />
     <ClCompile Include="SexyAppFramework\drivers\render\android\AndroidRenderDeviceES20.cpp" />
     <ClCompile Include="SexyAppFramework\drivers\render\RenderDevice.cpp" />
     <ClCompile Include="SexyAppFramework\drivers\render\RenderDevice3D.cpp" />
-    <ClCompile Include="SexyAppFramework\drivers\app\android\AndroidAppDriver.cpp" />
-    <ClCompile Include="SexyAppFramework\drivers\audio\wwise\WwiseInteractiveAudioDriver.cpp" />
     <ClCompile Include="SexyAppFramework\Event.cpp" />
     <ClCompile Include="SexyAppFramework\Flags.cpp" />
     <ClCompile Include="SexyAppFramework\Font.cpp" />
@@ -48,7 +48,6 @@
     <ClCompile Include="SexyAppFramework\Image.cpp" />
     <ClCompile Include="SexyAppFramework\Insets.cpp" />
     <ClCompile Include="SexyAppFramework\KeyCodes.cpp" />
-    <ClInclude Include="SexyAppFramework\LazySingleton.h" />
     <ClCompile Include="SexyAppFramework\MemoryImage.cpp" />
     <ClCompile Include="SexyAppFramework\MTRand.cpp" />
     <ClCompile Include="SexyAppFramework\PopAnim.cpp" />
@@ -68,6 +67,7 @@
     <ClCompile Include="SexyAppFramework\SexyMatrix.cpp" />
     <ClCompile Include="SexyAppFramework\SexyVector.cpp" />
     <ClCompile Include="SexyAppFramework\Widget.cpp" />
+    <ClCompile Include="SexyAppFramework\WidgetContainer.cpp" />
     <ClCompile Include="SexyAppFramework\WidgetManager.cpp" />
     <ClCompile Include="vendors\substrate\SubstrateHook.cpp" />
     <ClCompile Include="vendors\substrate\SubstratePosixMemory.cpp" />
@@ -81,6 +81,7 @@
     <ClInclude Include="PvZ2\src\ComponentBase.h" />
     <ClInclude Include="PvZ2\src\ComponentRunner.h" />
     <ClInclude Include="PvZ2\src\ConsoleApp.h" />
+    <ClInclude Include="PvZ2\src\Core.h" />
     <ClInclude Include="PvZ2\src\DamageInfo.h" />
     <ClInclude Include="PvZ2\src\GameObject.h" />
     <ClInclude Include="PvZ2\src\GameObjectDictionary.h" />
@@ -100,17 +101,16 @@
     <ClInclude Include="SexyAppFramework\Buffer.h" />
     <ClInclude Include="SexyAppFramework\ButtonListener.h" />
     <ClInclude Include="SexyAppFramework\Color.h" />
-    <ClInclude Include="PvZ2\src\Core.h" />
     <ClInclude Include="SexyAppFramework\Debug.h" />
     <ClInclude Include="SexyAppFramework\Delegate.h" />
-    <ClInclude Include="SexyAppFramework\drivers\render\android\AndroidRenderDeviceES20.h" />
-    <ClInclude Include="SexyAppFramework\drivers\render\RenderDevice.h" />
-    <ClInclude Include="SexyAppFramework\drivers\render\RenderDevice3D.h" />
     <ClInclude Include="SexyAppFramework\DialogListener.h" />
     <ClInclude Include="SexyAppFramework\drivers\app\android\AndroidAppDriver.h" />
     <ClInclude Include="SexyAppFramework\drivers\app\IAppDriver.h" />
     <ClInclude Include="SexyAppFramework\drivers\audio\IInteractiveAudioDriver.h" />
     <ClInclude Include="SexyAppFramework\drivers\audio\wwise\WwiseInteractiveAudioDriver.h" />
+    <ClInclude Include="SexyAppFramework\drivers\render\android\AndroidRenderDeviceES20.h" />
+    <ClInclude Include="SexyAppFramework\drivers\render\RenderDevice.h" />
+    <ClInclude Include="SexyAppFramework\drivers\render\RenderDevice3D.h" />
     <ClInclude Include="SexyAppFramework\Event.h" />
     <ClInclude Include="SexyAppFramework\Flags.h" />
     <ClInclude Include="SexyAppFramework\Font.h" />
@@ -119,6 +119,7 @@
     <ClInclude Include="SexyAppFramework\Image.h" />
     <ClInclude Include="SexyAppFramework\Insets.h" />
     <ClInclude Include="SexyAppFramework\KeyCodes.h" />
+    <ClInclude Include="SexyAppFramework\LazySingleton.h" />
     <ClInclude Include="SexyAppFramework\MemoryImage.h" />
     <ClInclude Include="SexyAppFramework\MTRand.h" />
     <ClInclude Include="SexyAppFramework\Point.h" />
@@ -143,11 +144,11 @@
     <ClInclude Include="SexyAppFramework\SexyAppBase.h" />
     <ClInclude Include="SexyAppFramework\SexyMatrix.h" />
     <ClInclude Include="SexyAppFramework\SexyVector.h" />
+    <ClInclude Include="SexyAppFramework\Touch.h" />
     <ClInclude Include="SexyAppFramework\TriVertex.h" />
     <ClInclude Include="SexyAppFramework\Widget.h" />
     <ClInclude Include="SexyAppFramework\WidgetContainer.h" />
     <ClInclude Include="SexyAppFramework\WidgetManager.h" />
-    <ClInclude Include="SexyAppFramework\Touch.h" />
     <ClInclude Include="vendors\substrate\CydiaSubstrate.h" />
     <ClInclude Include="vendors\substrate\SubstrateARM.hpp" />
     <ClInclude Include="vendors\substrate\SubstrateHook.h" />
@@ -197,13 +198,13 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <CppLanguageStandard>c++11</CppLanguageStandard>
       <CLanguageStandard>c11</CLanguageStandard>
       <AdditionalIncludeDirectories>vendors\substrate;SexyAppFramework;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SubstrateInternal;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <Link />
     <Link>
-      <LibraryDependencies>m;GLESv2;%(LibraryDependencies)</LibraryDependencies>
+      <LibraryDependencies>m;%(LibraryDependencies)</LibraryDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
@@ -211,15 +212,14 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <DebugInformationFormat>None</DebugInformationFormat>
-      <CppLanguageStandard>c++11</CppLanguageStandard>
       <CLanguageStandard>c11</CLanguageStandard>
       <AdditionalOptions>-fvisibility=hidden %(AdditionalOptions)</AdditionalOptions>
       <PreprocessorDefinitions>SubstrateInternal;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>vendors\substrate;SexyAppFramework;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <LibraryDependencies>m;GLESv2;%(LibraryDependencies)</LibraryDependencies>
       <DebuggerSymbolInformation>OmitAllSymbolInformation</DebuggerSymbolInformation>
+      <LibraryDependencies>m;%(LibraryDependencies)</LibraryDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

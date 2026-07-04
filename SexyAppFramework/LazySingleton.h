@@ -20,8 +20,7 @@ namespace Sexy
 		}
 
 		virtual ~LazySingleton()
-		{
-		}
+		{}
 
 	protected:
 
