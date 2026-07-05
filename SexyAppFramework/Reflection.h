@@ -5,6 +5,9 @@
 #ifndef __Reflection__
 #define __Reflection__
 
+#include "RtObject.h"
+
+//
 
 namespace Reflection
 {

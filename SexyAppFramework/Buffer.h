@@ -9,7 +9,10 @@
 namespace Sexy
 {
 
+	class Buffer
+	{
 
+	};
 
 } // Sexy
 

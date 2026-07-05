@@ -20,6 +20,7 @@ namespace Sexy
 
 	class ResourceManager;
 	class WidgetManager;
+	class ResStreamsManager;
 
 
 	class SexyAppBase : public ButtonListener, public DialogListener
@@ -403,7 +404,7 @@ namespace Sexy
 		int field371;
 		int field372;
 		int field373;
-		void* mResStreamsManager;
+		ResStreamsManager* mResStreamsManager;
 		int field375;
 		int field376;
 		int field377;

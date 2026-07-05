@@ -54,6 +54,7 @@
     <ClCompile Include="SexyAppFramework\Reflection.cpp" />
     <ClCompile Include="SexyAppFramework\ResourceClass.cpp" />
     <ClCompile Include="SexyAppFramework\ResourceManager.cpp" />
+    <ClCompile Include="SexyAppFramework\ResStreamsManager.cpp" />
     <ClCompile Include="SexyAppFramework\RtClass.cpp" />
     <ClCompile Include="SexyAppFramework\RtDb.cpp" />
     <ClCompile Include="SexyAppFramework\RtDbTable.cpp" />
@@ -129,6 +130,7 @@
     <ClInclude Include="SexyAppFramework\Reflection.h" />
     <ClInclude Include="SexyAppFramework\ResourceClass.h" />
     <ClInclude Include="SexyAppFramework\ResourceManager.h" />
+    <ClInclude Include="SexyAppFramework\ResStreamsManager.h" />
     <ClInclude Include="SexyAppFramework\RtClass.h" />
     <ClInclude Include="SexyAppFramework\RtDb.h" />
     <ClInclude Include="SexyAppFramework\RtDbTable.h" />

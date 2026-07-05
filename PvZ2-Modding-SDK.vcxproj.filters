@@ -61,6 +61,7 @@
     <ClCompile Include="PvZ2\src\ObjectTypeDescriptor.cpp" />
     <ClCompile Include="PvZ2\src\ObjectTypeDirectory.cpp" />
     <ClCompile Include="SexyAppFramework\WidgetContainer.cpp" />
+    <ClCompile Include="SexyAppFramework\ResStreamsManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vendors\substrate\CydiaSubstrate.h" />
@@ -142,6 +143,7 @@
     <ClInclude Include="PvZ2\src\MessageRouter.h" />
     <ClInclude Include="PvZ2\src\ModularRealObject.h" />
     <ClInclude Include="PvZ2\src\ObjectTypeDescriptor.h" />
+    <ClInclude Include="SexyAppFramework\ResStreamsManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LICENSE" />
