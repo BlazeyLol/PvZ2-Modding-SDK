@@ -6,12 +6,15 @@
 #define __WidgetManager__
 
 #include "WidgetContainer.h"
+#include "Flags.h"
+#include "MemoryImage.h"
 
 //
 
 namespace Sexy
 {
 
+	class Graphics;
 	class SexyAppBase;
 
 	//
@@ -28,48 +31,43 @@ namespace Sexy
 
 	//
 
+	using DeferredOverlayVector = std::vector<std::pair<Widget*, int> >;
+
 	class WidgetManager : public WidgetContainer
 	{
 	public:
 
 		int field20;
-		int field21;
+		Graphics* mCurG;
 		SexyAppBase* mApp;
-		int field23;
+		MemoryImage* mImage;
 		int field24;
 		int field25;
 		Widget* mPopupCommandWidget;
-		int field27;
-		int field28;
-		int field29;
+		DeferredOverlayVector mDeferredOverlayWidgets;
 		int mMinDeferredOverlayPriority;
 		int field31;
-		int field32;
-		int field33;
-		int field34;
+		Widget* mFocusWidget;
+		Widget* mLastDownWidget;
+		Widget* mOverWidget;
 		Widget* mBaseModalWidget;
 		int field36;
-		int field37;
-		int field38;
-		int field39;
-		int field40;
+		FlagsMod mLostFocusFlagsMod;
+		FlagsMod mBelowModalFlagsMod;
 		int field41;
 		int field42;
 		int field43;
 		int field44;
 		int field45;
-		int field46;
-		int field47;
-		int field48;
-		int field49;
+		Rect mMouseDestRect;
 		int field50;
 		int field51;
 		int field52;
 		int field53;
 		int field54;
-		int field55;
-		int field56;
-		int field57;
+		int mLastMouseX;
+		int mLastMouseY;
+		int mDownButtons;
 		int field58;
 		int field59;
 		bool mKeyDown[0xFF];
@@ -82,6 +80,7 @@ namespace Sexy
 		virtual ~WidgetManager() override;
 
 		void RehupMouse();
+		void FlushDeferredOverlayWidgets(int theMaxPriority);
 
 	};
 

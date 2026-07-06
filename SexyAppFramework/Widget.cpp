@@ -13,9 +13,20 @@ void Sexy::Widget::StaticClassInit()
 
 }
 
+
 Sexy::Widget::Widget()
 {
-
+	field22 = 0;
+	field23 = 0;
+	field24 = 0;
+	mWidgetManager = nullptr;
+	mVisible = true;
+	mMouseVisible = true;
+	boolean8 = 0;
+	field29 = 0;
+	field30 = 0;
+	field31 = 0xFFFFFFFF;
+	mDisabled = 0;
 }
 
 Sexy::Widget::~Widget()
@@ -87,17 +98,23 @@ void Sexy::Widget::Function55()
 void Sexy::Widget::Function56()
 {}
 
-void Sexy::Widget::Function57()
+void Sexy::Widget::DrawOverlay(Graphics* g)
 {}
 
-void Sexy::Widget::Function58()
-{}
+void Sexy::Widget::DrawOverlay(Graphics* g, int thePriority)
+{
+	DrawOverlay(g);
+}
 
-void Sexy::Widget::Function59()
-{}
+void Sexy::Widget::GotFocus()
+{
+	mHasFocus = true;
+}
 
-void Sexy::Widget::Function60()
-{}
+void Sexy::Widget::LostFocus()
+{
+	mHasFocus = false;
+}
 
 void Sexy::Widget::Function61()
 {}
@@ -111,14 +128,18 @@ void Sexy::Widget::Function63()
 void Sexy::Widget::Function64()
 {}
 
-void Sexy::Widget::Function65()
+void Sexy::Widget::MouseEnter()
+{
+
+}
+
+void Sexy::Widget::MouseLeave()
 {}
 
-void Sexy::Widget::Function66()
-{}
+void Sexy::Widget::MouseLeave(int x, int y)
+{
 
-void Sexy::Widget::Function67()
-{}
+}
 
 void Sexy::Widget::Function68()
 {}
@@ -126,13 +147,22 @@ void Sexy::Widget::Function68()
 void Sexy::Widget::Function69()
 {}
 
-void Sexy::Widget::Function70()
+void Sexy::Widget::MouseUp(int x, int y)
 {}
 
-void Sexy::Widget::Function71()
-{}
+void Sexy::Widget::MouseUp(int x, int y, int theLastDownButtonId)
+{
+	MouseUp(x, y);
 
-void Sexy::Widget::Function72()
+	if (theLastDownButtonId == 3)
+		MouseUp(x, y, 2, 1);
+	else if (theLastDownButtonId >= 0)
+		MouseUp(x, y, 0, theLastDownButtonId);
+	else
+		MouseUp(x, y, 1, -theLastDownButtonId);
+}
+
+void Sexy::Widget::MouseUp(int x, int y, int theBtnNum, int theClickCount)
 {}
 
 void Sexy::Widget::Function73()

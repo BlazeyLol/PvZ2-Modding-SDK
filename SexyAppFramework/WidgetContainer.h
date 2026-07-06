@@ -47,18 +47,19 @@ namespace Sexy
 		bool mClearClip;
 		bool mDirty;
 		bool mUpdateIteratorModified;
-		bool boolean6;
-		bool boolean7;
-		int field19;
+		bool mCanDraw;
+		bool mClipParent;
+		int mClipOrigin;
 
 
 		WidgetContainer();
 		virtual ~WidgetContainer() override;
 
+		Widget* GetWidgetAtHelper(int x, int y, int theFlags, bool* found, int* theWidgetX, int* theWidgetY);
 		bool IsBelowHelper(Widget* theWidget1, Widget* theWidget2, bool* found);
 		void InsertWidgetHelper(const WidgetList::iterator& where, Widget* theWidget);
 
-		virtual int Function7();
+		virtual Widget* GetWidgetAt(int x, int y, int theFlags, bool* found, int* theWidgetX, int* theWidgetY);
 		virtual Rect GetRect();
 		virtual Rect GetClipRect();
 		virtual bool Intersects(WidgetContainer* theWidget);
@@ -66,11 +67,11 @@ namespace Sexy
 		virtual void RemoveWidget(Widget* theWidget);
 		virtual bool HasWidget(Widget* theWidget);
 		virtual void DisableWidget(Widget* theWidget);
-		virtual void Function15();
+		virtual void UpdateMousePos(Widget* theWidget);
 		virtual void RemoveAllWidgets(bool doDelete, bool recursive);
 		virtual void DisableAllWidgets(Widget* theWidget);
-		virtual void Function18();
-		virtual void Function19();
+		virtual void RemoveModFlags(bool allowMouse);
+		virtual void SetFocus(Widget* theWidget);
 		virtual bool IsBelow(Widget* theWidget1, Widget* theWidget2);
 		virtual void MarkAllDirty();
 		virtual void BringToFront(Widget* theWidget);
@@ -92,8 +93,8 @@ namespace Sexy
 		virtual void DrawAll(ModalFlags* theFlags, Graphics* g);
 		virtual void SysColorChangedAll();
 		virtual void SysColorChanged();
-		virtual void Function41();
-		virtual void Function42();
+		virtual bool IterateAllWidgets();
+		virtual void InitClip(bool canDraw, bool clipParent, bool clipOrigin);
 
 	};
 

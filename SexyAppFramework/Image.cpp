@@ -21,10 +21,12 @@ Sexy::Image::Image()
 	mRenderData = nullptr;
 	mWidth = 0;
 	mHeight = 0;
+	mAtlasStartX = 0;
+	mAtlasStartY = 0;
 	mAtlasEndX = 0;
 	mAtlasEndY = 0;
-	mNumRows = 0;
-	mNumCols = 0;
+	mNumRows = 1;
+	mNumCols = 1;
 	mDrawn = false;
 }
 
