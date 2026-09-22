@@ -1,6 +1,7 @@
 # PvZ2 Modding SDK (WIP)
 
 -- This project is not dead! I am still working on it. --
+
 A modern Plants vs. Zombies 2 hooking library with modding in mind.
 
 ## Summary
